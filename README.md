@@ -1,8 +1,7 @@
-# Neural Verification of Deep Convolution Neural Networks
-
+# Scalable and Explainable Verification of Image-based Neural Network Controllers
 ## Features
-- Allows formal verification of Deep CNN's using neural network verifiers such as Marabou
-- Encodes the high dimensional RGB input images to lower dimension latent space representation using a Variational AutoEncoder structure
+- Allows formal verification of Deep CNN's using neural network verifiers such as alpha-beta-CROWN
+- Encodes the high dimensional RGB input images to lower dimension latent space representation using a Variational AutoEncoder (VAE) structure
  
 ### *Current Features*
 - The ```VAE_keras.ipynb``` file trains a vanilla VAE code written to create a 2D latent space representation of the *MNIST digits dataset* and create new images from the decoder
