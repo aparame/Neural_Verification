@@ -1,0 +1,160 @@
+bright_0.2_phi_1_Nvidia_bright_0.2.yaml:
+Result: sat
+Time: 0.6323394775390625
+
+bright_0.2_phi_1_Resnet18_bright_0.2.yaml:
+Result: sat
+Time: 0.9841880798339844
+
+bright_0.2_phi_2_Nvidia_bright_0.2.yaml:
+Result: sat
+Time: 0.6302680969238281
+
+bright_0.2_phi_2_Resnet18_bright_0.2.yaml:
+Result: sat
+Time: 0.854149341583252
+
+bright_0.2_phi_3_Nvidia_bright_0.2.yaml:
+Result: sat
+Time: 0.7164797782897949
+
+bright_0.2_phi_3_Resnet18_bright_0.2.yaml:
+Result: sat
+Time: 0.8540866374969482
+
+bright_0.2_phi_4_Nvidia_bright_0.2.yaml:
+Result: sat
+Time: 0.6377685070037842
+
+bright_0.2_phi_4_Resnet18_bright_0.2.yaml:
+Result: sat
+Time: 0.8289105892181396
+
+bright_0.2_phi_5_Nvidia_bright_0.2.yaml:
+Result: sat
+Time: 0.9050478935241699
+
+bright_0.2_phi_5_Resnet18_bright_0.2.yaml:
+Result: sat
+Time: 1.107590675354004
+
+bright_0.4_phi_1_Nvidia_bright_0.4.yaml:
+Result: sat
+Time: 0.6099541187286377
+
+bright_0.4_phi_1_Resnet18_bright_0.4.yaml:
+Result: sat
+Time: 0.9519882202148438
+
+bright_0.4_phi_2_Nvidia_bright_0.4.yaml:
+Result: sat
+Time: 0.610776424407959
+
+bright_0.4_phi_2_Resnet18_bright_0.4.yaml:
+Result: sat
+Time: 0.8760430812835693
+
+bright_0.4_phi_3_Nvidia_bright_0.4.yaml:
+Result: sat
+Time: 0.6896007061004639
+
+bright_0.4_phi_3_Resnet18_bright_0.4.yaml:
+Result: sat
+Time: 0.9209163188934326
+
+bright_0.4_phi_4_Nvidia_bright_0.4.yaml:
+Result: sat
+Time: 0.6195039749145508
+
+bright_0.4_phi_4_Resnet18_bright_0.4.yaml:
+Result: sat
+Time: 0.8399612903594971
+
+bright_0.4_phi_5_Nvidia_bright_0.4.yaml:
+Result: sat
+Time: 0.8834521770477295
+
+bright_0.4_phi_5_Resnet18_bright_0.4.yaml:
+Result: sat
+Time: 1.1719768047332764
+
+mb_2_phi_1_Nvidia_mb_2.yaml:
+Result: sat
+Time: 0.6706686019897461
+
+mb_2_phi_1_Resnet18_mb_2.yaml:
+Result: sat
+Time: 0.9355628490447998
+
+mb_2_phi_2_Nvidia_mb_2.yaml:
+Result: sat
+Time: 0.6094636917114258
+
+mb_2_phi_2_Resnet18_mb_2.yaml:
+Result: sat
+Time: 0.8456234931945801
+
+mb_2_phi_3_Nvidia_mb_2.yaml:
+Result: sat
+Time: 0.6920645236968994
+
+mb_2_phi_3_Resnet18_mb_2.yaml:
+Result: sat
+Time: 0.8661510944366455
+
+mb_2_phi_4_Nvidia_mb_2.yaml:
+Result: sat
+Time: 0.6376628875732422
+
+mb_2_phi_4_Resnet18_mb_2.yaml:
+Result: sat
+Time: 0.8253734111785889
+
+mb_2_phi_5_Nvidia_mb_2.yaml:
+Result: sat
+Time: 0.7006363868713379
+
+mb_2_phi_5_Resnet18_mb_2.yaml:
+Result: sat
+Time: 1.171755313873291
+
+mb_4_phi_1_Nvidia_mb_4.yaml:
+Result: sat
+Time: 0.7077741622924805
+
+mb_4_phi_1_Resnet18_mb_4.yaml:
+Result: sat
+Time: 0.9378468990325928
+
+mb_4_phi_2_Nvidia_mb_4.yaml:
+Result: sat
+Time: 0.6546635627746582
+
+mb_4_phi_2_Resnet18_mb_4.yaml:
+Result: sat
+Time: 0.8624639511108398
+
+mb_4_phi_3_Nvidia_mb_4.yaml:
+Result: sat
+Time: 0.6064741611480713
+
+mb_4_phi_3_Resnet18_mb_4.yaml:
+Result: sat
+Time: 0.81778883934021
+
+mb_4_phi_4_Nvidia_mb_4.yaml:
+Result: sat
+Time: 0.6190767288208008
+
+mb_4_phi_4_Resnet18_mb_4.yaml:
+Result: sat
+Time: 0.8141605854034424
+
+mb_4_phi_5_Nvidia_mb_4.yaml:
+Result: sat
+Time: 0.8892059326171875
+
+mb_4_phi_5_Resnet18_mb_4.yaml:
+Result: sat
+Time: 1.0977838039398193
+

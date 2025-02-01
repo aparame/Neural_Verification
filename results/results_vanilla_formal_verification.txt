@@ -1,0 +1,40 @@
+formal_phi_5_formal_Resnet18.yaml:
+Result: sat
+Time: 0.7812466621398926
+
+formal_phi_1_formal_Nvidia.yaml:
+Result: sat
+Time: 0.3887672424316406
+
+formal_phi_5_formal_Nvidia.yaml:
+Result: sat
+Time: 0.5534908771514893
+
+formal_phi_4_formal_Nvidia.yaml:
+Result: sat
+Time: 0.32764196395874023
+
+formal_phi_3_formal_Resnet18.yaml:
+Result: sat
+Time: 0.5754497051239014
+
+formal_phi_2_formal_Resnet18.yaml:
+Result: sat
+Time: 0.5149111747741699
+
+formal_phi_1_formal_Resnet18.yaml:
+Result: sat
+Time: 0.5695326328277588
+
+formal_phi_3_formal_Nvidia.yaml:
+Result: sat
+Time: 0.3558223247528076
+
+formal_phi_2_formal_Nvidia.yaml:
+Result: sat
+Time: 0.3593263626098633
+
+formal_phi_4_formal_Resnet18.yaml:
+Result: sat
+Time: 0.5078637599945068
+

@@ -443,8 +443,11 @@ def main():
 
     # Check if the ONNX model already exists
     onnx_path = os.path.join(save_dir, f"GMVAE_robust_{config['Augmentation']['type']}_{config['Augmentation']['value']}.onnx")
+    torch_path = os.path.join(save_dir, f"GMVAE_robust_{config['Augmentation']['type']}_{config['Augmentation']['value']}.pt")
     if os.path.exists(onnx_path):
         print(f"\nTrained ONNX model found at {onnx_path}. Skipping training...")
+        model.load_state_dict(torch.load(torch_path))
+        model.to(device)
     else:
         # Optimizer setup
         optimizer = optim.Adam(model.parameters(), 

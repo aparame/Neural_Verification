@@ -1,0 +1,19 @@
+model:
+  onnx_path: Neural_Networks_Under_Verification/Nvidia_bright_0.2.onnx
+  input_shape: [-1, 8]
+specification:
+  vnnlib_path: vnnlib_files/specifications/perform/bright_0.2_phi_5.vnnlib
+solver:
+  batch_size: 2000
+  alpha-crown:
+    iteration: 100
+    lr_alpha: 0.1
+bab:
+  timeout: 2000
+  branching:
+    reduceop: min
+    method: fsb
+    candidates: 50
+attack:
+  pgd_steps: 50000
+  pgd_restarts: 50
