@@ -10,23 +10,32 @@ def represent_list_flow_style(dumper, data):
 yaml.add_representer(list, represent_list_flow_style)
 
 # Define constants
-ABCROWN_CMD = "python alpha-beta-CROWN/complete_verifier/abcrown.py --config"
+ABCROWN_CMD = "python /home/adi2440/Desktop/Neurosymbolic/alpha-beta-CROWN/complete_verifier/abcrown.py --config"
 RESULTS_FILE = "results/results_robustness_verification.txt"
-CONFIG_FOLDER = "configs_robustness"
+# CONFIG_FOLDER = "configs_robustness"
+CONFIG_FOLDER = 'NEW_configs_robustness'
 
+# Define vnnlib and onnx paths
 # Define paths
+# VNNLIB_PATHS = [
+#     "vnnlib_files/specifications/safe",
+#     "vnnlib_files/specifications/perform"
+# ]
 VNNLIB_PATHS = [
-    "vnnlib_files/specifications/safe",
-    "vnnlib_files/specifications/perform"
+    "configs"
 ]
-ONNX_PATH = "Neural_Networks_Under_Verification"
+
+# ONNX_PATH = "Neural_Networks_Under_Verification"
+
+ONNX_PATH = 'saved_models/combined'
+
 
 # Create config folder if needed
 os.makedirs(CONFIG_FOLDER, exist_ok=True)
 
 # Define robustness parameters
-ROBUSTNESS_TYPES = ["bright_0.2", "bright_0.4", "mb_2", "mb_4"]
-ONNX_MODELS = ["Nvidia", "Resnet18"]
+ROBUSTNESS_TYPES = ["bright_0.2", "bright_0.4", "mb_2", "mb_4","mb_6"]
+ONNX_MODELS = ["NvidiaNet", "ResNet18"]
 
 # Generate YAML configurations
 for vnnlib_path in VNNLIB_PATHS:
@@ -106,20 +115,20 @@ for config_file in os.listdir(CONFIG_FOLDER):
         config_path = os.path.join(CONFIG_FOLDER, config_file)
         cmd = f"{ABCROWN_CMD} {config_path}"
         try:
-            output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT, timeout=300).decode("utf-8")
+            output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT, timeout=10).decode("utf-8")
             last_two_lines = output.splitlines()[-2:]
-            
-            # Print to terminal
-            print(f"Results for {config_file}:")
-            print("\n".join(last_two_lines))
-            print("-" * 50)  # Separator for readability
-            
-            # Save to results list
-            results.append(f"{config_file}:\n" + "\n".join(last_two_lines) + "\n\n")
+        except subprocess.TimeoutExpired:
+            last_two_lines = ["Result: unsat"]
         except Exception as e:
-            error_msg = f"{config_file}: ERROR - {str(e)}\n\n"
-            print(error_msg)
-            results.append(error_msg)
+            last_two_lines = [f"ERROR - {str(e)}"]
+
+        # Print to terminal
+        print(f"Results for {config_file}:")
+        print("\n".join(last_two_lines))
+        print("-" * 50)  # Separator for readability
+
+        # Save to results list
+        results.append(f"{config_file}:\n" + "\n".join(last_two_lines) + "\n\n")
 
 # Sort results alphabetically by config file name
 results.sort()

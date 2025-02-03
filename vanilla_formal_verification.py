@@ -10,19 +10,28 @@ def represent_list_flow_style(dumper, data):
 yaml.add_representer(list, represent_list_flow_style)
 
 # Define constants
-ABCROWN_CMD = "python alpha-beta-CROWN/complete_verifier/abcrown.py --config"
+ABCROWN_CMD = "python /home/adi2440/Desktop/Neurosymbolic/alpha-beta-CROWN/complete_verifier/abcrown.py --config"
 RESULTS_FILE = "results/results_vanilla_formal_verification.txt"
-CONFIG_FOLDER = "configs_vanilla"
+CONFIG_FOLDER = "NEW_configs_vanilla"
+# CONFIG_FOLDER = "configs_vanilla"
 
 # Define vnnlib and onnx paths
 # Define paths
+# VNNLIB_PATHS = [
+#     "vnnlib_files/specifications/safe",
+#     "vnnlib_files/specifications/perform"
+# ]
 VNNLIB_PATHS = [
-    "vnnlib_files/specifications/safe",
-    "vnnlib_files/specifications/perform"
+    "configs"
 ]
 
-ONNX_PATHS = ["Neural_Networks_Under_Verification/formal_Nvidia.onnx",
-	     "Neural_Networks_Under_Verification/formal_Resnet18.onnx"]
+# ONNX_PATHS = ["Neural_Networks_Under_Verification/formal_Nvidia.onnx",
+# 	     "Neural_Networks_Under_Verification/formal_Resnet18.onnx"]
+
+
+ONNX_PATHS = ["saved_models/combined/NvidiaNet_GMVAE_vanilla.onnx",
+	     "saved_models/combined/ResNet18_GMVAE_vanilla.onnx"]
+
 
 # Create config folder if it doesn't exist
 os.makedirs(CONFIG_FOLDER, exist_ok=True)
@@ -30,7 +39,7 @@ os.makedirs(CONFIG_FOLDER, exist_ok=True)
 # Generate yaml files
 for vnnlib_path in VNNLIB_PATHS:
     for onnx_path in ONNX_PATHS:
-        for vnnlib_file in glob.glob(os.path.join(vnnlib_path, "formal*.vnnlib")):
+        for vnnlib_file in glob.glob(os.path.join(vnnlib_path, "*formal*.vnnlib")):
             config_data = {
                 "model": {
                     "onnx_path": onnx_path,
