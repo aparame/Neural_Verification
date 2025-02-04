@@ -121,3 +121,5 @@ ICCPS_SEVIN_REP/
 ├── environment.yml # List of additional Python packages to install
 
 └── README.md
+
+[![DOI](https://zenodo.org/badge/679296696.svg)](https://doi.org/10.5281/zenodo.14806735)
