@@ -20,7 +20,7 @@ cd ICCPR_SEVIN_REP
 ```
 
 2. **Set Up the Alpha-Beta-Crown Environment**:
-- Clone the [alpha-beta-crown](https://github.com/your-username/alpha-beta-crown) repository and follow its instructions to create a Conda environment.
+- Clone the [alpha-beta-crown]([https://github.com/your-username/alpha-beta-crown](https://github.com/Verified-Intelligence/alpha-beta-CROWN)) repository and follow its instructions to create a Conda environment.
 - Activate the Conda environment:
   ```
   conda activate alpha-beta-crown
