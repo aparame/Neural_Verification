@@ -14,8 +14,8 @@ This repository contains the repeatability package for the codebase of the confe
 
 1. **Clone the Repository**:
 ```
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone [https://github.com/your-username/your-repo-name.git](https://github.com/aparame/ICCPS_SEVIN_REP)
+cd ICCPR_SEVIN_REP
 ```
 
 2. **Set Up the Alpha-Beta-Crown Environment**:
