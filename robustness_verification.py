@@ -12,17 +12,11 @@ yaml.add_representer(list, represent_list_flow_style)
 # Define constants
 ABCROWN_CMD = "python /home/adi2440/Desktop/Neurosymbolic/alpha-beta-CROWN/complete_verifier/abcrown.py --config"
 RESULTS_FILE = "results/results_robustness_verification.txt"
-# CONFIG_FOLDER = "configs_robustness"
-CONFIG_FOLDER = 'NEW_configs_robustness'
+CONFIG_FOLDER = 'configs_robustness'
 
-# Define vnnlib and onnx paths
-# Define paths
-# VNNLIB_PATHS = [
-#     "vnnlib_files/specifications/safe",
-#     "vnnlib_files/specifications/perform"
-# ]
+
 VNNLIB_PATHS = [
-    "configs"
+    "vnnlibs"
 ]
 
 # ONNX_PATH = "Neural_Networks_Under_Verification"

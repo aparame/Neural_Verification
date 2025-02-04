@@ -22,7 +22,7 @@ cd your-repo-name
 - Clone the [alpha-beta-crown](https://github.com/your-username/alpha-beta-crown) repository and follow its instructions to create a Conda environment.
 - Activate the Conda environment:
   ```
-  conda activate alpha-beta-crown-env
+  conda activate alpha-beta-crown
   ```
 
 3. **Install Additional Packages**:
@@ -37,7 +37,7 @@ cd your-repo-name
 
 To recreate the results from **Table 1** and **Table 3** of the ICCPS paper:
 
-1. Execute the following Python scripts:
+1. Execute the following Python scripts after activating the conda environment `alpha-beta-crown` as mentioned above:
 ```
 python vanilla_formal_verification.py
 python robustness_verification.py
@@ -47,25 +47,33 @@ python robustness_verification.py
 
 ---
 
-## Training and Specification Process
+## Supplementary Code: Training and Specification Generation Process
 
-If you want to dive deeper into the training and specification process, follow these steps:
+If you want to dive deeper into the training and specification process, move to the `util` folder and follow these steps:
 
 ### 1. Train the Gaussian Mixture Variational Autoencoder (GM-VAE)
 - Use the `train_config.ini` file to configure and iterate over training parameters.
 - Train the GM-VAE using the following scripts:
-- **Vanilla GM-VAE**:
+#### Vanilla GM-VAE:
  ```
  python vanilla_train.py
  ```
-- **Robust GM-VAE (with image augmentations)**:
+#### Robust GM-VAE (with image augmentations):
  ```
  python robust_train.py
  ```
+ For the Robust GM-VAE training, you can set the following options in the Augmentation section of `train_config.ini` as:
+ ```
+ [Augmentation]
+ type = mb 
+ value = 4  
+```
+- where `type` can be `mb` for Motion Blur augmentation or `bright` for Image Brightness augmentation applied to the PyTorch Dataloader class during training. The `value` can be `2, 4 or 6 ` for Motion Blur and `0.2 or 0.4` for Image Brightness.
+
 - The trained models will be saved in the `saved_models` directory.
 
 ### 2. Train the Neural Network Controller (NNC)
-- Train the neural network controller using the `nc_train.py` script. The training configuration can be controlled using the `config_NNC.ini` file.
+Train the neural network controller using the `nc_train.py` script. The training configuration can be controlled using the `config_NNC.ini` file.
 ```
 python nc_train.py
 ```
@@ -73,7 +81,20 @@ python nc_train.py
 - The trained NNC models will also be saved in the `saved_models` folder.
 
 ### 3. Combine the GM-VAE Decoder with the NNC
-- Combine the decoder from the trained GM-VAE with the NNC trained earlier. Save the combined model in the `saved_models` directory.
+Combine the Decoder from the trained GM-VAE with the NNC trained earlier. Save the combined model in the `saved_models` directory.
+```
+python combined.py
+```
+
+### 4. Generate the VNNLIB specification files for Verification
+Using the combined models from the previous step, generate the `.vnnlib` files to be used in the formal verification process later on. The `generate_vnnlib.py` code first pre-processes the latent encodings based on the action values and then generates the vnnlib file for verification.
+```
+python generate_vnnlib.py
+```
+- The `.vnnlib` files are saved in the `configs` folder.
+
+### Conclusion
+This concludes the supplementary tranining, and specification generation steps. You can now conduct formal verification using the `vanilla_formal_verification.py` and `robustness_verification.py` files from the home directory
 
 ---
 

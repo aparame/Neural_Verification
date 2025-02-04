@@ -1,6 +1,5 @@
 name: alpha-beta-crown
 channels:
-  - gurobi
   - pytorch
   - nvidia
   - conda-forge
@@ -39,7 +38,6 @@ dependencies:
   - gmp=6.2.1=h295c915_3
   - gmpy2=2.1.2=py311hc9b5ff0_0
   - gnutls=3.6.15=he1e5248_0
-  - gurobi=11.0.0=py311_0
   - humanfriendly=10.0=py311h06a4308_1
   - identify=2.5.5=py311h06a4308_0
   - idna=3.4=py311h06a4308_0

@@ -1,0 +1,52 @@
+; Generated VNNLIB file
+(declare-const X_0 Real)
+(declare-const X_1 Real)
+(declare-const X_2 Real)
+(declare-const X_3 Real)
+(declare-const X_4 Real)
+(declare-const X_5 Real)
+(declare-const X_6 Real)
+(declare-const X_7 Real)
+(declare-const Y_0 Real)
+
+
+; Input constraints:
+
+(assert (>= X_0 1.9622867))
+
+(assert (<= X_0 4.6594105))
+
+(assert (>= X_1 -2.77756))
+
+(assert (<= X_1 1.5448877))
+
+(assert (>= X_2 -0.45377174))
+
+(assert (<= X_2 1.1456263))
+
+(assert (>= X_3 -2.1656723))
+
+(assert (<= X_3 1.1356634))
+
+(assert (>= X_4 -3.725766))
+
+(assert (<= X_4 -1.5638522))
+
+(assert (>= X_5 -2.409303))
+
+(assert (<= X_5 1.0584254))
+
+(assert (>= X_6 -2.635277))
+
+(assert (<= X_6 -0.38742068))
+
+(assert (>= X_7 -3.8190668))
+
+(assert (<= X_7 1.0304153))
+
+; Output constraints:
+
+(assert (>= Y_0 0.15))
+(assert (<= Y_0 0.40))
+
+; End of constraint set
