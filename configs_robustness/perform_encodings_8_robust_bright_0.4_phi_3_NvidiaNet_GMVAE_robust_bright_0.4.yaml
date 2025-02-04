@@ -1,0 +1,19 @@
+model:
+  onnx_path: saved_models/combined/NvidiaNet_GMVAE_robust_bright_0.4.onnx
+  input_shape: [-1, 8]
+specification:
+  vnnlib_path: vnnlibs/perform_encodings_8_robust_bright_0.4_phi_3.vnnlib
+solver:
+  batch_size: 2000
+  alpha-crown:
+    iteration: 100
+    lr_alpha: 0.1
+bab:
+  timeout: 2000
+  branching:
+    reduceop: min
+    method: fsb
+    candidates: 50
+attack:
+  pgd_steps: 50000
+  pgd_restarts: 50

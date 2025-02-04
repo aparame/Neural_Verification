@@ -69,24 +69,32 @@ for vnnlib_path in VNNLIB_PATHS:
                 with open(config_path, "w") as f:
                     yaml.dump(config_data, f, default_flow_style=False, sort_keys=False)
 
-# Run abcrown.py for each yaml file
+# Run verification process
+results = []
+for config_file in os.listdir(CONFIG_FOLDER):
+    if config_file.endswith(".yaml"):
+        config_path = os.path.join(CONFIG_FOLDER, config_file)
+        cmd = f"{ABCROWN_CMD} {config_path}"
+        try:
+            output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT, timeout=10).decode("utf-8")
+            last_two_lines = output.splitlines()[-2:]
+        except subprocess.TimeoutExpired:
+            last_two_lines = ["Result: unsat"]
+        except Exception as e:
+            last_two_lines = [f"ERROR - {str(e)}"]
+
+        # Print to terminal
+        print(f"Results for {config_file}:")
+        print("\n".join(last_two_lines))
+        print("-" * 50)  # Separator for readability
+
+        # Save to results list
+        results.append(f"{config_file}:\n" + "\n".join(last_two_lines) + "\n\n")
+
+# Sort results alphabetically by config file name
+results.sort()
+
+# Write sorted results to the text file
 with open(RESULTS_FILE, "w") as results_f:
-    for config_file in os.listdir(CONFIG_FOLDER):
-        if config_file.endswith(".yaml"):
-            config_path = os.path.join(CONFIG_FOLDER, config_file)
-            cmd = f"{ABCROWN_CMD} {config_path}"
-            try:
-                output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT, timeout=300).decode("utf-8")
-                last_two_lines = output.splitlines()[-2:]
-                
-                # Print to terminal
-                print(f"Results for {config_file}:")
-                print("\n".join(last_two_lines))
-                print("-" * 50)  # Separator for readability
-                
-                # Save to results file
-                results_f.write(f"{config_file}:\n" + "\n".join(last_two_lines) + "\n\n")
-            except Exception as e:
-                error_msg = f"{config_file}: ERROR - {str(e)}"
-                print(error_msg)
-                results_f.write(error_msg + "\n\n")
+    for result in results:
+        results_f.write(result)

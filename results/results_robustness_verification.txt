@@ -1,0 +1,197 @@
+perform_encodings_8_robust_bright_0.2_phi_1_NvidiaNet_GMVAE_robust_bright_0.2.yaml:
+Result: sat
+Time: 0.6075975894927979
+
+perform_encodings_8_robust_bright_0.2_phi_1_ResNet18_GMVAE_robust_bright_0.2.yaml:
+Result: sat
+Time: 0.8430485725402832
+
+perform_encodings_8_robust_bright_0.2_phi_2_NvidiaNet_GMVAE_robust_bright_0.2.yaml:
+Result: sat
+Time: 0.48318958282470703
+
+perform_encodings_8_robust_bright_0.2_phi_2_ResNet18_GMVAE_robust_bright_0.2.yaml:
+Result: sat
+Time: 0.7235450744628906
+
+perform_encodings_8_robust_bright_0.2_phi_3_NvidiaNet_GMVAE_robust_bright_0.2.yaml:
+Result: unsat
+
+perform_encodings_8_robust_bright_0.2_phi_3_ResNet18_GMVAE_robust_bright_0.2.yaml:
+Result: sat
+Time: 1.0507786273956299
+
+perform_encodings_8_robust_bright_0.4_phi_1_NvidiaNet_GMVAE_robust_bright_0.4.yaml:
+Result: sat
+Time: 0.5804409980773926
+
+perform_encodings_8_robust_bright_0.4_phi_1_ResNet18_GMVAE_robust_bright_0.4.yaml:
+Result: sat
+Time: 0.7955825328826904
+
+perform_encodings_8_robust_bright_0.4_phi_2_NvidiaNet_GMVAE_robust_bright_0.4.yaml:
+Result: sat
+Time: 0.5281422138214111
+
+perform_encodings_8_robust_bright_0.4_phi_2_ResNet18_GMVAE_robust_bright_0.4.yaml:
+Result: sat
+Time: 0.8509893417358398
+
+perform_encodings_8_robust_bright_0.4_phi_3_NvidiaNet_GMVAE_robust_bright_0.4.yaml:
+Result: unsat
+
+perform_encodings_8_robust_bright_0.4_phi_3_ResNet18_GMVAE_robust_bright_0.4.yaml:
+Result: sat
+Time: 1.4810469150543213
+
+perform_encodings_8_robust_mb_2_phi_1_NvidiaNet_GMVAE_robust_mb_2.yaml:
+Result: sat
+Time: 0.5731501579284668
+
+perform_encodings_8_robust_mb_2_phi_1_ResNet18_GMVAE_robust_mb_2.yaml:
+Result: sat
+Time: 0.808445930480957
+
+perform_encodings_8_robust_mb_2_phi_2_NvidiaNet_GMVAE_robust_mb_2.yaml:
+Result: sat
+Time: 0.4714667797088623
+
+perform_encodings_8_robust_mb_2_phi_2_ResNet18_GMVAE_robust_mb_2.yaml:
+Result: sat
+Time: 0.758873701095581
+
+perform_encodings_8_robust_mb_2_phi_3_NvidiaNet_GMVAE_robust_mb_2.yaml:
+Result: sat
+Time: 0.5087809562683105
+
+perform_encodings_8_robust_mb_2_phi_3_ResNet18_GMVAE_robust_mb_2.yaml:
+Result: sat
+Time: 1.8792378902435303
+
+perform_encodings_8_robust_mb_4_phi_1_NvidiaNet_GMVAE_robust_mb_4.yaml:
+Result: sat
+Time: 0.5043578147888184
+
+perform_encodings_8_robust_mb_4_phi_1_ResNet18_GMVAE_robust_mb_4.yaml:
+Result: sat
+Time: 0.8402125835418701
+
+perform_encodings_8_robust_mb_4_phi_2_NvidiaNet_GMVAE_robust_mb_4.yaml:
+Result: sat
+Time: 0.5316228866577148
+
+perform_encodings_8_robust_mb_4_phi_2_ResNet18_GMVAE_robust_mb_4.yaml:
+Result: sat
+Time: 0.7224035263061523
+
+perform_encodings_8_robust_mb_4_phi_3_NvidiaNet_GMVAE_robust_mb_4.yaml:
+Result: sat
+Time: 0.560034990310669
+
+perform_encodings_8_robust_mb_4_phi_3_ResNet18_GMVAE_robust_mb_4.yaml:
+Result: sat
+Time: 0.9832911491394043
+
+perform_encodings_8_robust_mb_6_phi_1_NvidiaNet_GMVAE_robust_mb_6.yaml:
+Result: sat
+Time: 0.500859260559082
+
+perform_encodings_8_robust_mb_6_phi_1_ResNet18_GMVAE_robust_mb_6.yaml:
+Result: sat
+Time: 0.8881938457489014
+
+perform_encodings_8_robust_mb_6_phi_2_NvidiaNet_GMVAE_robust_mb_6.yaml:
+Result: sat
+Time: 0.49022412300109863
+
+perform_encodings_8_robust_mb_6_phi_2_ResNet18_GMVAE_robust_mb_6.yaml:
+Result: sat
+Time: 0.7856569290161133
+
+perform_encodings_8_robust_mb_6_phi_3_NvidiaNet_GMVAE_robust_mb_6.yaml:
+Result: unsat
+
+perform_encodings_8_robust_mb_6_phi_3_ResNet18_GMVAE_robust_mb_6.yaml:
+Result: sat
+Time: 1.8167014122009277
+
+safe_encodings_8_robust_bright_0.2_phi_1_NvidiaNet_GMVAE_robust_bright_0.2.yaml:
+Result: sat
+Time: 0.500877857208252
+
+safe_encodings_8_robust_bright_0.2_phi_1_ResNet18_GMVAE_robust_bright_0.2.yaml:
+Result: sat
+Time: 0.6908917427062988
+
+safe_encodings_8_robust_bright_0.2_phi_2_NvidiaNet_GMVAE_robust_bright_0.2.yaml:
+Result: sat
+Time: 0.5599408149719238
+
+safe_encodings_8_robust_bright_0.2_phi_2_ResNet18_GMVAE_robust_bright_0.2.yaml:
+Result: sat
+Time: 0.7787966728210449
+
+safe_encodings_8_robust_bright_0.4_phi_1_NvidiaNet_GMVAE_robust_bright_0.4.yaml:
+Result: sat
+Time: 0.5770173072814941
+
+safe_encodings_8_robust_bright_0.4_phi_1_ResNet18_GMVAE_robust_bright_0.4.yaml:
+Result: sat
+Time: 0.7914142608642578
+
+safe_encodings_8_robust_bright_0.4_phi_2_NvidiaNet_GMVAE_robust_bright_0.4.yaml:
+Result: sat
+Time: 0.6560699939727783
+
+safe_encodings_8_robust_bright_0.4_phi_2_ResNet18_GMVAE_robust_bright_0.4.yaml:
+Result: sat
+Time: 0.7001261711120605
+
+safe_encodings_8_robust_mb_2_phi_1_NvidiaNet_GMVAE_robust_mb_2.yaml:
+Result: sat
+Time: 0.52093505859375
+
+safe_encodings_8_robust_mb_2_phi_1_ResNet18_GMVAE_robust_mb_2.yaml:
+Result: sat
+Time: 0.7217419147491455
+
+safe_encodings_8_robust_mb_2_phi_2_NvidiaNet_GMVAE_robust_mb_2.yaml:
+Result: sat
+Time: 0.4658071994781494
+
+safe_encodings_8_robust_mb_2_phi_2_ResNet18_GMVAE_robust_mb_2.yaml:
+Result: sat
+Time: 0.8262155055999756
+
+safe_encodings_8_robust_mb_4_phi_1_NvidiaNet_GMVAE_robust_mb_4.yaml:
+Result: sat
+Time: 0.4958527088165283
+
+safe_encodings_8_robust_mb_4_phi_1_ResNet18_GMVAE_robust_mb_4.yaml:
+Result: sat
+Time: 0.7490739822387695
+
+safe_encodings_8_robust_mb_4_phi_2_NvidiaNet_GMVAE_robust_mb_4.yaml:
+Result: sat
+Time: 0.45371079444885254
+
+safe_encodings_8_robust_mb_4_phi_2_ResNet18_GMVAE_robust_mb_4.yaml:
+Result: sat
+Time: 0.8194022178649902
+
+safe_encodings_8_robust_mb_6_phi_1_NvidiaNet_GMVAE_robust_mb_6.yaml:
+Result: sat
+Time: 0.5327930450439453
+
+safe_encodings_8_robust_mb_6_phi_1_ResNet18_GMVAE_robust_mb_6.yaml:
+Result: sat
+Time: 0.6813321113586426
+
+safe_encodings_8_robust_mb_6_phi_2_NvidiaNet_GMVAE_robust_mb_6.yaml:
+Result: sat
+Time: 0.5848398208618164
+
+safe_encodings_8_robust_mb_6_phi_2_ResNet18_GMVAE_robust_mb_6.yaml:
+Result: sat
+Time: 0.8115825653076172
+
