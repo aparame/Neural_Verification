@@ -15,7 +15,9 @@ from PIL import Image
 import numpy as np
 from tqdm import tqdm
 from sklearn.manifold import TSNE
-import cv2  # Added missing import
+import cv2 
+import torchvision.utils as vutils
+import random
 
 class ProcessedImageDataset(Dataset):
     """Dataset class for processed images."""
@@ -383,6 +385,52 @@ def generate_encodings_csv(model, dataloader, output_dir, csv_filename):
     final_df.to_csv(os.path.join(output_dir, csv_filename), index=False)
     print(f'Encodings saved to {os.path.join(output_dir, csv_filename)}')
 
+def save_reconstruction(model, train_dataloader, output_dir, config, num_samples=5):
+    model.eval()
+    device = next(model.parameters()).device  # Get the device from the model
+
+
+    with torch.no_grad():
+        # Select random indices from the dataset
+        sample_indices = random.sample(range(len(train_dataloader.dataset)), num_samples)
+        
+        original_images = []
+        reconstructed_images = []
+        
+        for idx in sample_indices:
+            # Get data for the selected index
+            img, _, _ = train_dataloader.dataset[idx]
+            img = img.unsqueeze(0).to(device)  # Add batch dimension and move to device
+            
+            # Generate reconstructed images
+            recon_batch, _, _, _ = model(img)
+            
+            # Move data to CPU for visualization
+            original_images.append(img.cpu().squeeze(0))
+            reconstructed_images.append(recon_batch.cpu().squeeze(0))
+        
+        # Create a single plot with all images
+        fig, axes = plt.subplots(2, num_samples, figsize=(num_samples * 2, 4))
+        
+        for i in range(num_samples):
+            axes[0, i].imshow(original_images[i].permute(1, 2, 0), cmap='gray')
+            axes[0, i].axis('off')
+            axes[1, i].imshow(reconstructed_images[i].permute(1, 2, 0), cmap='gray')
+            axes[1, i].axis('off')
+        
+        axes[0, 0].set_title("Original Images", fontsize=12)
+        axes[1, 0].set_title("Reconstructed Images", fontsize=12)
+        
+        title = f"robust_reconstruction_{config['Augmentation']['type']}_{config['Augmentation']['value']}"
+        fig.suptitle(title, fontsize=14)
+        
+        plt.tight_layout()
+        plt.subplots_adjust(top=0.85)
+        plt.savefig(os.path.join(output_dir, f"{title}.png"))
+        plt.close()
+
+
+
 def main():
     # Read configuration
     print("Initializing training pipeline...")
@@ -456,7 +504,7 @@ def main():
     train_losses = train(model, train_loader, optimizer, scheduler, device, config)
 
     # Save training curves
-    loss_plot_path = os.path.join(plot_dir, 'loss_curve.png')
+    loss_plot_path = os.path.join(plot_dir, 'robust_loss_curve.png')
     plt.figure(figsize=(10, 5))
     plt.plot(train_losses['total'], label='Train Total Loss')
     plt.plot(train_losses['recon'], label='Train Reconstruction Loss')
@@ -489,6 +537,9 @@ def main():
     print("\nGenerating encodings CSV...")
     csv_filename = f"encodings_{latent_dim}_robust_{config['Augmentation']['type']}_{config['Augmentation']['value']}.csv"
     generate_encodings_csv(model, train_loader, encoding_dir, csv_filename)
+
+    # Save the reconstructed images in a seperate directory
+    save_reconstruction(model,train_loader,plot_dir,config,num_samples = 5)
 
     print("\nTraining and post-processing complete!")
 
