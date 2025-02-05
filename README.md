@@ -10,6 +10,8 @@ This repository contains the repeatability package for the codebase of the confe
 ### Prerequisites
 - **Operating System**: Ubuntu 20.04
 - **Python Version**: 3.11.2
+- **GPU**: Nvidia RTX 3090
+- **CPU**: Intel Core-i9 13900K
 
 ### Steps to Set Up the Environment
 
