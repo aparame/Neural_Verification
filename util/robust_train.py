@@ -320,7 +320,7 @@ def plot_latent_space(model, dataloader, output_dir, augmentation_type, augmenta
     plt.ylabel('t-SNE Component 2', fontsize=10)
     plt.grid(True, linestyle='--', linewidth=0.5, alpha=0.7)
     plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, f'TSNE_is_noisy_{augmentation_type}.png'), dpi=300, bbox_inches='tight')
+    plt.savefig(os.path.join(output_dir, f'TSNE_is_noisy_{augmentation_type}_{augmentation_value}.png'), dpi=300, bbox_inches='tight')
     plt.show()
 
     # Plot t-SNE with actual labels
