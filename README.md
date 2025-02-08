@@ -1,7 +1,7 @@
  [![DOI](https://zenodo.org/badge/679296696.svg)](https://doi.org/10.5281/zenodo.14806735)
 # Scalable and Explainable Verification of Image-based Neural Network Controllers
 
-This repository contains the repeatability package for the codebase of the conference paper titled **"Scalable and Explainable Verification of Image-based Neural Network Controllers"**. The package includes scripts and configurations to reproduce the results presented in the paper, as well as tools for training and verifying neural network controllers.
+This repository contains the repeatability package for the codebase of the conference paper titled **"Scalable and Explainable Verification of Image-based Neural Network Controllers"** that is part of the proceedings for the **Internation Conference on Cyber-Physical Systems 2025**. The package includes scripts and configurations to reproduce the results presented in the paper, as well as tools for training and verifying neural network controllers.
 
 ---
 
@@ -129,5 +129,10 @@ ICCPS_SEVIN_REP/
 └── README.md
 
 ```
+
+## Author Information
+You can contact aparame@clemson.edu for any queries or to report any bugs in the code.
+- Authors:- Aditya Parameshwaran and Yue Wang
+
 
 
