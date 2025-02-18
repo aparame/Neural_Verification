@@ -1,40 +1,39 @@
 perform_encodings_8_formal_phi_1_NvidiaNet_GMVAE_vanilla.yaml:
 Result: sat
-Time: 0.5324697494506836
+Time: 0.5533285140991211
 
 perform_encodings_8_formal_phi_1_ResNet18_GMVAE_vanilla.yaml:
 Result: sat
-Time: 0.8254818916320801
+Time: 0.8109264373779297
 
 perform_encodings_8_formal_phi_2_NvidiaNet_GMVAE_vanilla.yaml:
 Result: sat
-Time: 0.35387301445007324
+Time: 0.32668447494506836
 
 perform_encodings_8_formal_phi_2_ResNet18_GMVAE_vanilla.yaml:
 Result: sat
-Time: 0.6934463977813721
+Time: 0.7169935703277588
 
 perform_encodings_8_formal_phi_3_NvidiaNet_GMVAE_vanilla.yaml:
 Result: sat
-Time: 0.6851472854614258
+Time: 0.6977474689483643
 
 perform_encodings_8_formal_phi_3_ResNet18_GMVAE_vanilla.yaml:
-Result: sat
-Time: 0.8214315432367223
+Result: unsat
 
 safe_encodings_8_formal_phi_1_NvidiaNet_GMVAE_vanilla.yaml:
 Result: sat
-Time: 0.4587368965148926
+Time: 0.46378111839294434
 
 safe_encodings_8_formal_phi_1_ResNet18_GMVAE_vanilla.yaml:
 Result: sat
-Time: 1.0169124603271484
+Time: 0.5715377330780029
 
 safe_encodings_8_formal_phi_2_NvidiaNet_GMVAE_vanilla.yaml:
 Result: sat
-Time: 0.47607994079589844
+Time: 0.4603536128997803
 
 safe_encodings_8_formal_phi_2_ResNet18_GMVAE_vanilla.yaml:
 Result: sat
-Time: 0.7956204414367676
+Time: 0.7630436420440674
 
