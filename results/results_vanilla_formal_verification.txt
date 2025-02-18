@@ -19,7 +19,8 @@ Result: sat
 Time: 0.6851472854614258
 
 perform_encodings_8_formal_phi_3_ResNet18_GMVAE_vanilla.yaml:
-Result: unsat
+Result: sat
+Time: 0.8214315432367223
 
 safe_encodings_8_formal_phi_1_NvidiaNet_GMVAE_vanilla.yaml:
 Result: sat

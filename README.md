@@ -1,7 +1,7 @@
  [![DOI](https://zenodo.org/badge/679296696.svg)](https://doi.org/10.5281/zenodo.14806735)
 # Scalable and Explainable Verification of Image-based Neural Network Controllers
 
-This repository contains the repeatability package for the codebase of the conference paper titled **"Scalable and Explainable Verification of Image-based Neural Network Controllers"**. The package includes scripts and configurations to reproduce the results presented in the paper, as well as tools for training and verifying neural network controllers.
+This repository contains the repeatability package for the codebase of the conference paper titled **"Scalable and Explainable Verification of Image-based Neural Network Controllers"** that is part of the proceedings for the **Internation Conference on Cyber-Physical Systems 2025**. The package includes scripts and configurations to reproduce the results presented in the paper, as well as tools for training and verifying neural network controllers.
 
 ---
 
@@ -10,6 +10,11 @@ This repository contains the repeatability package for the codebase of the confe
 ### Prerequisites
 - **Operating System**: Ubuntu 20.04
 - **Python Version**: 3.11.2
+
+### PC Configuration
+- **GPU**: Nvidia RTX 3090
+- **CPU**: Intel Core-i9 13900K
+
 
 ### Steps to Set Up the Environment
 
@@ -106,7 +111,7 @@ ICCPS_SEVIN_REP/
 ├── dataset/
   ├── processed_images/ # Contains the pre-processed front camera images
   ├── combined_file.csv # Action value information
-├── encodings/processed # Contains infomration about the latent space encodings for each trained GM-VAE and specification to be verified
+├── encodings/processed # Contains information about the latent space encodings for each trained GM-VAE and specification to be verified
 ├── results #Saved verification results
 ├── saved_models/ # Stores trained models (GM-VAE, NNC, and combined models)
 ├── training_plots #Some plots generated in the training process as shown in the paper
@@ -124,5 +129,10 @@ ICCPS_SEVIN_REP/
 └── README.md
 
 ```
+
+## Author Information
+You can contact aparame@clemson.edu for any queries or to report any bugs in the code.
+- Authors:- Aditya Parameshwaran and Yue Wang
+
 
 
