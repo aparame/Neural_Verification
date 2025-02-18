@@ -31,10 +31,10 @@ This repository contains the repeatability package for the codebase of the confe
 
 2. **Clone the SEVIN_ICCPS_RE_Package Repository**:
 - Clone this repository in a new folder adjacent to the alpha-beta-CROWN repository
- ```
- git clone https://github.com/aparame/ICCPS_SEVIN_REP
- cd ICCPR_SEVIN_REP
- ```
+  ```
+  git clone https://github.com/aparame/ICCPS_SEVIN_REP
+  cd ICCPR_SEVIN_REP
+  ```
 
 3. **Install Additional Packages**:
 - Update the `alpha-beta-crown` conda environment with required packages listed in the `ICCPS_SEVIN_REP\environment.yml` file provided in the ICCPS_SEVIN_REP repository:
