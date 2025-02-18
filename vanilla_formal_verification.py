@@ -10,7 +10,7 @@ def represent_list_flow_style(dumper, data):
 yaml.add_representer(list, represent_list_flow_style)
 
 # Define constants
-ABCROWN_CMD = "python /alpha-beta-CROWN/complete_verifier/abcrown.py --config"
+ABCROWN_CMD = "python alpha-beta-CROWN/complete_verifier/abcrown.py --config"
 RESULTS_FILE = "results/results_vanilla_formal_verification.txt"
 CONFIG_FOLDER = "configs_vanilla"
 
