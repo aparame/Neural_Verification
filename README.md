@@ -18,21 +18,26 @@ This repository contains the repeatability package for the codebase of the confe
 
 ### Steps to Set Up the Environment
 
-1. **Clone the Repository**:
-```
-git clone https://github.com/aparame/ICCPS_SEVIN_REP
-cd ICCPR_SEVIN_REP
-```
-
-2. **Set Up the Alpha-Beta-Crown Environment**:
+1. **Set Up the Alpha-Beta-Crown Environment**:
 - Clone the [alpha-beta-crown](https://github.com/Verified-Intelligence/alpha-beta-CROWN) repository and follow its instructions to create a Conda environment.
 - Activate the Conda environment:
   ```
   conda activate alpha-beta-crown
   ```
+- Move back to home dir:
+  ```
+  cd ..
+  ```
+
+2. **Clone the SEVIN_ICCPS_RE_Package Repository**:
+- Clone this repository in a new folder adjacent to the alpha-beta-CROWN repository
+```
+git clone https://github.com/aparame/ICCPS_SEVIN_REP
+cd ICCPR_SEVIN_REP
+```
 
 3. **Install Additional Packages**:
-- Install the required packages listed in the `environment.yml` file provided in this repository:
+- Update the `alpha-beta-crown` conda environment with required packages listed in the `ICCPS_SEVIN_REP\environment.yml` file provided in the ICCPS_SEVIN_REP repository:
   ```
   conda env update --file environment.yml
   ```
