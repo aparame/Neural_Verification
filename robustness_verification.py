@@ -2,10 +2,24 @@ import os
 import subprocess
 import yaml
 import glob
+import re
 
 # Custom YAML representer for lists to enforce flow style
 def represent_list_flow_style(dumper, data):
     return dumper.represent_sequence('tag:yaml.org,2002:seq', data, flow_style=True)
+
+# Remove repeating substrings
+def remove_repeating_substrings(filename):
+    parts = filename.split('_')
+    seen = set()
+    new_parts = []
+    
+    for part in parts:
+        if part not in seen:
+            seen.add(part)
+            new_parts.append(part)
+    
+    return '_'.join(new_parts)
 
 yaml.add_representer(list, represent_list_flow_style)
 
@@ -93,6 +107,15 @@ for vnnlib_path in VNNLIB_PATHS:
                     vnnlib_base = os.path.basename(vnnlib_file).replace(".vnnlib", "")
                     onnx_base = os.path.basename(onnx_file).replace(".onnx", "")
                     config_filename = f"{vnnlib_base}_{onnx_base}.yaml"
+                    # Define patterns to remove
+                    patterns_to_remove = [r'_GMVAE', r'_formal', r'_encodings_8']
+
+                    # Remove specified patterns
+                    for pattern in patterns_to_remove:
+                        config_filename = re.sub(pattern, '', config_filename)
+
+                    config_filename = remove_repeating_substrings(config_filename)
+                    
                     config_path = os.path.join(CONFIG_FOLDER, config_filename)
 
                     if not os.path.exists(config_path):
