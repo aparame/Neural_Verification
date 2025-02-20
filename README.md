@@ -16,20 +16,17 @@ This repository contains the repeatability package for the codebase of the confe
 - **CPU**: Intel Core-i9 13900K
 
 
-### Steps to Set Up the Environment
+## Steps to Set Up the Environment
 
-1. **Set Up the Alpha-Beta-Crown Environment**:
-- Clone the [alpha-beta-crown](https://github.com/Verified-Intelligence/alpha-beta-CROWN) repository and follow its instructions to create a Conda environment. Alternatively, the instructions are as shown below:
-
-1.1 Installation and Setup
+1.1 [Alpha-Beta-CROWN](https://github.com/Verified-Intelligence/alpha-beta-CROWN) **Installation and Setup**
  ----------------------
- 
+
  α,β-CROWN is tested on Python 3.11 and PyTorch 2.3.1 (recent versions may also work).
  It can be installed
  easily into a conda environment. If you don't have conda, you can install
  [miniconda](https://docs.conda.io/en/latest/miniconda.html).
  
- Clone our verifier including the [auto_LiRPA](https://github.com/Verified-Intelligence/auto_LiRPA) submodule:
+ Clone their verifier including the [auto_LiRPA](https://github.com/Verified-Intelligence/auto_LiRPA) submodule:
  ```bash
  git clone --recursive https://github.com/Verified-Intelligence/alpha-beta-CROWN.git
  ```
@@ -43,24 +40,20 @@ This repository contains the repeatability package for the codebase of the confe
  conda env create -f complete_verifier/environment.yaml --name alpha-beta-crown
  # activate the environment
  conda activate alpha-beta-crown
+ # Move back to main directory
+ cd ..
  ```
- - Activate the Conda environment:
+   
+1.2 Clone the SEVIN_ICCPS_RE_Package Repository:
+----------------------
+ - Clone this repository in a new folder adjacent to the alpha-beta-CROWN repository
    ```
-   conda activate alpha-beta-crown
-   ```
- - Move back to home dir:
-   ```
-   cd ..
+   git clone https://github.com/aparame/ICCPS_SEVIN_REP
+   cd ICCPR_SEVIN_REP
    ```
 
-2. **Clone the SEVIN_ICCPS_RE_Package Repository**:
-- Clone this repository in a new folder adjacent to the alpha-beta-CROWN repository
-  ```
-  git clone https://github.com/aparame/ICCPS_SEVIN_REP
-  cd ICCPR_SEVIN_REP
-  ```
-
-3. **Install Additional Packages**:
+1.3 **Install Additional Packages**:
+----------------------
 - Update the `alpha-beta-crown` conda environment with required packages listed in the `ICCPS_SEVIN_REP\environment.yml` file provided in the ICCPS_SEVIN_REP repository:
   ```
   conda env update --file environment.yml
@@ -72,13 +65,15 @@ This repository contains the repeatability package for the codebase of the confe
 
 To recreate the results from **Table 1** and **Table 3** of the ICCPS paper:
 
-1. Execute the following Python scripts after activating the conda environment `alpha-beta-crown` as mentioned above:
+2.1 Execute the following Python scripts after activating the conda environment `alpha-beta-crown` as mentioned above:
+ ----------------------
 ```
 python vanilla_formal_verification.py
 python robustness_verification.py
 ```
 
-2. The results will be stored in the `results` folder as `.txt` files. These files can be used to generate the tables presented in the paper.
+The results will be stored in the `results` folder as `.txt` files. These files can be used to generate the tables presented in the paper.
+
 
 ---
 
