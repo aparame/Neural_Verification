@@ -8,18 +8,23 @@ import re
 def represent_list_flow_style(dumper, data):
     return dumper.represent_sequence('tag:yaml.org,2002:seq', data, flow_style=True)
 
-# Remove repeating substrings
-def remove_repeating_substrings(filename):
-    parts = filename.split('_')
-    seen = set()
-    new_parts = []
-    
-    for part in parts:
-        if part not in seen:
-            seen.add(part)
-            new_parts.append(part)
-    
-    return '_'.join(new_parts)
+def remove_unwanted_patterns(text):
+    """Remove specific unwanted patterns from a string."""
+    patterns = [r'_GMVAE', r'_formal', r'_encodings_8']
+    for pattern in patterns:
+        text = re.sub(pattern, '', text)
+    return text
+
+def remove_repeating_tokens(text):
+    """Remove duplicate tokens (separated by underscores) preserving order."""
+    tokens = text.split('_')
+    seen = []
+    result = []
+    for token in tokens:
+        if token not in seen:
+            seen.append(token)
+            result.append(token)
+    return '_'.join(result)
 
 yaml.add_representer(list, represent_list_flow_style)
 
@@ -47,8 +52,8 @@ ONNX_MODELS = ["NvidiaNet", "ResNet18"]
 
 # Generate YAML configurations
 for vnnlib_path in VNNLIB_PATHS:
-    for robustness_type in ROBUSTNESS_TYPES:
-        for onnx_model in ONNX_MODELS:
+    for robustness_type in ROBUSTNESS_TYPES:  # e.g., "bright_0.2"
+        for onnx_model in ONNX_MODELS:  # e.g., "ResNet18"
             # Find matching VNNLIB files
             vnnlib_pattern = os.path.join(vnnlib_path, f"*{robustness_type}*.vnnlib")
             vnnlib_files = glob.glob(vnnlib_pattern)
@@ -57,7 +62,6 @@ for vnnlib_path in VNNLIB_PATHS:
             onnx_pattern = os.path.join(ONNX_PATH, f"*{onnx_model}*{robustness_type}*.onnx")
             onnx_files = glob.glob(onnx_pattern)
             
-            # Debugging: Print file search results
             print(f"Searching for VNNLIB files with pattern: {vnnlib_pattern}")
             print(f"Found VNNLIB files: {vnnlib_files}")
             print(f"Searching for ONNX files with pattern: {onnx_pattern}")
@@ -67,7 +71,6 @@ for vnnlib_path in VNNLIB_PATHS:
                 print(f"No VNNLIB files found for {robustness_type} in {vnnlib_path}")
             if not onnx_files:
                 print(f"No ONNX files found for {robustness_type} and {onnx_model} in {ONNX_PATH}")
-            
             if not vnnlib_files or not onnx_files:
                 print(f"Skipping {robustness_type} for {onnx_model} - files not found")
                 continue
@@ -77,7 +80,7 @@ for vnnlib_path in VNNLIB_PATHS:
                     config_data = {
                         "model": {
                             "onnx_path": onnx_file,
-                            "input_shape": [-1, 8]  # Will now be formatted as [-1, 8]
+                            "input_shape": [-1, 8]
                         },
                         "specification": {
                             "vnnlib_path": vnnlib_file
@@ -103,19 +106,29 @@ for vnnlib_path in VNNLIB_PATHS:
                         }
                     }
 
-                    # Create filename components
+                    # Create filename components from the original files
                     vnnlib_base = os.path.basename(vnnlib_file).replace(".vnnlib", "")
-                    onnx_base = os.path.basename(onnx_file).replace(".onnx", "")
-                    config_filename = f"{vnnlib_base}_{onnx_base}.yaml"
-                    # Define patterns to remove
-                    patterns_to_remove = [r'_GMVAE', r'_formal', r'_encodings_8']
+                    onnx_base   = os.path.basename(onnx_file).replace(".onnx", "")
 
-                    # Remove specified patterns
-                    for pattern in patterns_to_remove:
-                        config_filename = re.sub(pattern, '', config_filename)
+                    # Remove unwanted patterns
+                    vnnlib_base = remove_unwanted_patterns(vnnlib_base)
+                    onnx_base   = remove_unwanted_patterns(onnx_base)
 
-                    config_filename = remove_repeating_substrings(config_filename)
+                    # Remove duplicate tokens (if any)
+                    vnnlib_clean = remove_repeating_tokens(vnnlib_base)
+                    onnx_clean   = remove_repeating_tokens(onnx_base)
                     
+                    robust_prefix = f"robust_{robustness_type}"
+                    vnnlib_clean = vnnlib_clean.replace(robust_prefix, '')
+                    # Clean up any accidental double underscores
+                    vnnlib_clean = re.sub(r'__+', '_', vnnlib_clean).strip('_')
+                    
+                    if onnx_clean.endswith('_' + robustness_type.split('_')[-1]):
+                        onnx_clean = onnx_model
+
+                    # Reassemble the config filename in the desired order:
+                    # prefix (from vnnlib) + onnx model + robustness type.
+                    config_filename = f"{vnnlib_clean}_{onnx_clean}_{robustness_type}.yaml"
                     config_path = os.path.join(CONFIG_FOLDER, config_filename)
 
                     if not os.path.exists(config_path):
@@ -124,6 +137,7 @@ for vnnlib_path in VNNLIB_PATHS:
                             yaml.dump(config_data, f, default_flow_style=False, sort_keys=False)
                     else:
                         print(f"YAML file already exists: {config_filename}")
+
 
 # Run verification process
 results = []
