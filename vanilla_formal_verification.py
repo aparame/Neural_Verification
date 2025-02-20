@@ -2,6 +2,7 @@ import os
 import subprocess
 import yaml
 import glob
+import re
 
 # Custom YAML representer for lists to enforce flow style
 def represent_list_flow_style(dumper, data):
@@ -63,6 +64,15 @@ for vnnlib_path in VNNLIB_PATHS:
 
             # Create yaml file
             base_name = f"{os.path.basename(vnnlib_file).split('.')[0]}_{os.path.basename(onnx_path).split('.')[0]}"
+            # Define patterns to remove
+            patterns_to_remove = [r'_GMVAE', r'_formal', r'_encodings_8']
+
+            # Remove specified patterns
+            for pattern in patterns_to_remove:
+                config_filename = re.sub(pattern, '', config_filename)
+
+            # Remove repeated character sequences (e.g., '__' -> '_')
+            config_filename = re.sub(r'(_)\1+', r'\1', config_filename)
             config_path = os.path.join(CONFIG_FOLDER, f"{base_name}.yaml")
             
             if not os.path.exists(config_path):
