@@ -63,7 +63,7 @@ for vnnlib_path in VNNLIB_PATHS:
             }
 
             # Create yaml file
-            base_name = f"{os.path.basename(vnnlib_file).split('.')[0]}_{os.path.basename(onnx_path).split('.')[0]}"
+            config_filename = f"{os.path.basename(vnnlib_file).split('.')[0]}_{os.path.basename(onnx_path).split('.')[0]}"
             # Define patterns to remove
             patterns_to_remove = [r'_GMVAE', r'_formal', r'_encodings_8']
 
@@ -73,7 +73,7 @@ for vnnlib_path in VNNLIB_PATHS:
 
             # Remove repeated character sequences (e.g., '__' -> '_')
             config_filename = re.sub(r'(_)\1+', r'\1', config_filename)
-            config_path = os.path.join(CONFIG_FOLDER, f"{base_name}.yaml")
+            config_path = os.path.join(CONFIG_FOLDER, f"{config_filename}.yaml")
             
             if not os.path.exists(config_path):
                 with open(config_path, "w") as f:
