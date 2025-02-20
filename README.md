@@ -20,7 +20,8 @@ This repository contains the repeatability package for the codebase of the confe
 
 1. **Set Up the Alpha-Beta-Crown Environment**:
 - Clone the [alpha-beta-crown](https://github.com/Verified-Intelligence/alpha-beta-CROWN) repository and follow its instructions to create a Conda environment. Alternatively, the instructions are as shown below:
- 1.1 Installation and Setup
+
+1.1 Installation and Setup
  ----------------------
  
  α,β-CROWN is tested on Python 3.11 and PyTorch 2.3.1 (recent versions may also work).
