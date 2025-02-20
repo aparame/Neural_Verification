@@ -19,15 +19,38 @@ This repository contains the repeatability package for the codebase of the confe
 ### Steps to Set Up the Environment
 
 1. **Set Up the Alpha-Beta-Crown Environment**:
-- Clone the [alpha-beta-crown](https://github.com/Verified-Intelligence/alpha-beta-CROWN) repository and follow its instructions to create a Conda environment.
-- Activate the Conda environment:
-  ```
-  conda activate alpha-beta-crown
-  ```
-- Move back to home dir:
-  ```
-  cd ..
-  ```
+- Clone the [alpha-beta-crown](https://github.com/Verified-Intelligence/alpha-beta-CROWN) repository and follow its instructions to create a Conda environment. Alternatively, the instructions are as shown below:
+ 1.1 Installation and Setup
+ ----------------------
+ 
+ α,β-CROWN is tested on Python 3.11 and PyTorch 2.3.1 (recent versions may also work).
+ It can be installed
+ easily into a conda environment. If you don't have conda, you can install
+ [miniconda](https://docs.conda.io/en/latest/miniconda.html).
+ 
+ Clone our verifier including the [auto_LiRPA](https://github.com/Verified-Intelligence/auto_LiRPA) submodule:
+ ```bash
+ git clone --recursive https://github.com/Verified-Intelligence/alpha-beta-CROWN.git
+ ```
+ 
+ Setup the conda environment from [`environment.yaml`](complete_verifier/environment.yaml)
+ with pinned dependencies versions (CUDA>=12.1 is required):
+ ```bash
+ # Remove the old environment, if necessary.
+ conda deactivate; conda env remove --name alpha-beta-crown
+ # install all dependents into the alpha-beta-crown environment
+ conda env create -f complete_verifier/environment.yaml --name alpha-beta-crown
+ # activate the environment
+ conda activate alpha-beta-crown
+ ```
+ - Activate the Conda environment:
+   ```
+   conda activate alpha-beta-crown
+   ```
+ - Move back to home dir:
+   ```
+   cd ..
+   ```
 
 2. **Clone the SEVIN_ICCPS_RE_Package Repository**:
 - Clone this repository in a new folder adjacent to the alpha-beta-CROWN repository
